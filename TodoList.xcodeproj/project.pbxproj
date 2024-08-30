@@ -8,17 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		971033C02C819F96007E9BBD /* TodoListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971033BF2C819F96007E9BBD /* TodoListApp.swift */; };
-		971033C22C819F96007E9BBD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971033C12C819F96007E9BBD /* ContentView.swift */; };
 		971033C42C819F98007E9BBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 971033C32C819F98007E9BBD /* Assets.xcassets */; };
 		971033C72C819F98007E9BBD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 971033C62C819F98007E9BBD /* Preview Assets.xcassets */; };
+		971033CF2C819FED007E9BBD /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971033CE2C819FED007E9BBD /* ListView.swift */; };
+		971033D12C81A194007E9BBD /* ListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971033D02C81A194007E9BBD /* ListRowView.swift */; };
+		971033D32C81A543007E9BBD /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971033D22C81A543007E9BBD /* AddView.swift */; };
+		971033D62C81A983007E9BBD /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971033D52C81A983007E9BBD /* ItemModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		971033BC2C819F96007E9BBD /* TodoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		971033BF2C819F96007E9BBD /* TodoListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListApp.swift; sourceTree = "<group>"; };
-		971033C12C819F96007E9BBD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		971033C32C819F98007E9BBD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		971033C62C819F98007E9BBD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		971033CE2C819FED007E9BBD /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		971033D02C81A194007E9BBD /* ListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowView.swift; sourceTree = "<group>"; };
+		971033D22C81A543007E9BBD /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
+		971033D52C81A983007E9BBD /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +57,9 @@
 		971033BE2C819F96007E9BBD /* TodoList */ = {
 			isa = PBXGroup;
 			children = (
+				971033D42C81A96F007E9BBD /* Models */,
+				971033CD2C819FD9007E9BBD /* Views */,
 				971033BF2C819F96007E9BBD /* TodoListApp.swift */,
-				971033C12C819F96007E9BBD /* ContentView.swift */,
 				971033C32C819F98007E9BBD /* Assets.xcassets */,
 				971033C52C819F98007E9BBD /* Preview Content */,
 			);
@@ -65,6 +72,24 @@
 				971033C62C819F98007E9BBD /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		971033CD2C819FD9007E9BBD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				971033CE2C819FED007E9BBD /* ListView.swift */,
+				971033D02C81A194007E9BBD /* ListRowView.swift */,
+				971033D22C81A543007E9BBD /* AddView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		971033D42C81A96F007E9BBD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				971033D52C81A983007E9BBD /* ItemModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +162,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				971033C22C819F96007E9BBD /* ContentView.swift in Sources */,
+				971033D62C81A983007E9BBD /* ItemModel.swift in Sources */,
+				971033D32C81A543007E9BBD /* AddView.swift in Sources */,
 				971033C02C819F96007E9BBD /* TodoListApp.swift in Sources */,
+				971033CF2C819FED007E9BBD /* ListView.swift in Sources */,
+				971033D12C81A194007E9BBD /* ListRowView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

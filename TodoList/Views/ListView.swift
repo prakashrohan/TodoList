@@ -19,7 +19,10 @@ struct ListView: View {
             ForEach(items){ item in
             ListRowView(item: item)
             }
+            .onDelete(perform: deleteItem)
+            .onMove(perform: moveItem)
         }
+        
         .navigationTitle("Todo List📝")
         .navigationBarItems(
             leading: EditButton(),
@@ -27,6 +30,14 @@ struct ListView: View {
         )
         
     }
+    func deleteItem(indexset : IndexSet){
+        items.remove(atOffsets:indexset)
+    }
+    
+    func moveItem(from : IndexSet , to : Int){
+        items.move(fromOffsets: from , toOffset: to)
+    }
+    
 }
 
 #Preview {

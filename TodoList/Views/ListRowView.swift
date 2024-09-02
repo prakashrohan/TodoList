@@ -22,6 +22,7 @@ struct ListRowView: View {
 }
 var item2 = ItemModel(title: "thids is the second", isCompleted: true)
 var item1 = ItemModel(title: "thids is the first", isCompleted: false)
+var item3 = ItemModel(title: "thids is the third", isCompleted: false)
 #Preview {
     
     ListRowView(item: item2)

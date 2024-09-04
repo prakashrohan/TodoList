@@ -1,10 +1,3 @@
-//
-//  ListView.swift
-//  TodoList
-//
-//  Created by Rohan Prakash on 30/08/24.
-//
-
 import SwiftUI
 
 struct ListView: View {
@@ -15,22 +8,43 @@ struct ListView: View {
         ItemModel(title: "this is the third", isCompleted: false)
     ]
     
-    var body: some View {
-        List {
-            ForEach(items) { item in
-                ListRowView(item: item)
-                    .onTapGesture {
-                        toggleItemCompletion(item: item)
-                    }
-            }
-            .onDelete(perform: deleteItem)
-            .onMove(perform: moveItem)
+    @State private var searchText = ""
+    
+    var filteredItems: [ItemModel] {
+        if searchText.isEmpty {
+            return items
+        } else {
+            return items.filter { $0.title.lowercased().contains(searchText.lowercased()) }
         }
-        .navigationTitle("Todo List📝")
-        .navigationBarItems(
-            leading: EditButton(),
-            trailing: NavigationLink("Add", destination: AddView())
-        )
+    }
+    
+    var body: some View {
+        VStack {
+            SearchBar(text: $searchText)
+            List {
+                ForEach(filteredItems) { item in
+                    ListRowView(item: item)
+                        .onTapGesture {
+                            toggleItemCompletion(item: item)
+                        }
+                        .swipeActions(edge: .leading) {
+                            Button {
+                                toggleItemCompletion(item: item)
+                            } label: {
+                                Label("Complete", systemImage: item.isCompleted ? "xmark.circle" : "checkmark.circle")
+                            }
+                            .tint(item.isCompleted ? .red : .green)
+                        }
+                }
+                .onDelete(perform: deleteItem)
+                .onMove(perform: moveItem)
+            }
+            .navigationTitle("Todo List📝")
+            .navigationBarItems(
+                leading: EditButton(),
+                trailing: NavigationLink("Add", destination: AddView())
+            )
+        }
     }
     
     func deleteItem(indexSet: IndexSet) {
@@ -52,6 +66,4 @@ struct ListView: View {
     NavigationStack{
         ListView()
     }
-    }
-   
-
+}

@@ -19,31 +19,33 @@ struct ListView: View {
     }
     
     var body: some View {
-        VStack {
-            SearchBar(text: $searchText)
-            List {
-                ForEach(filteredItems) { item in
-                    ListRowView(item: item)
-                        .onTapGesture {
-                            toggleItemCompletion(item: item)
-                        }
-                        .swipeActions(edge: .leading) {
-                            Button {
+        ZStack {
+            VStack {
+                SearchBar(text: $searchText)
+                List {
+                    ForEach(filteredItems) { item in
+                        ListRowView(item: item)
+                            .onTapGesture {
                                 toggleItemCompletion(item: item)
-                            } label: {
-                                Label("Complete", systemImage: item.isCompleted ? "xmark.circle" : "checkmark.circle")
                             }
-                            .tint(item.isCompleted ? .red : .green)
-                        }
+                            .swipeActions(edge: .leading) {
+                                Button {
+                                    toggleItemCompletion(item: item)
+                                } label: {
+                                    Label("Complete", systemImage: item.isCompleted ? "xmark.circle" : "checkmark.circle")
+                                }
+                                .tint(item.isCompleted ? .red : .green)
+                            }
+                    }
+                    .onDelete(perform: deleteItem)
+                    .onMove(perform: moveItem)
                 }
-                .onDelete(perform: deleteItem)
-                .onMove(perform: moveItem)
+                .navigationTitle("Todo List📝")
+                .navigationBarItems(
+                    leading: EditButton(),
+                    trailing: NavigationLink("Add", destination: AddView())
+                )
             }
-            .navigationTitle("Todo List📝")
-            .navigationBarItems(
-                leading: EditButton(),
-                trailing: NavigationLink("Add", destination: AddView())
-            )
         }
     }
     

@@ -6,6 +6,7 @@ struct ListView: View {
         ItemModel(title: "this is the first", isCompleted: true),
         ItemModel(title: "this is the second", isCompleted: false),
         ItemModel(title: "this is the third", isCompleted: false)
+        ItemModel(title: "this is the fourth", isCompleted: false)
     ]
     
     @State private var searchText = ""
